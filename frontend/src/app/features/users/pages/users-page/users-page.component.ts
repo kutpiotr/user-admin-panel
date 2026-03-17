@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 import { UsersListComponent } from '../../components/users-list/users-list.component';
 import { User } from '../../models/user.model';
@@ -8,7 +9,7 @@ import { UsersService } from '../../services/users.service';
 @Component({
 selector: 'app-users-page',
 standalone: true,
-imports: [CommonModule, UsersListComponent],
+imports: [CommonModule, RouterLink, UsersListComponent],
 templateUrl: './users-page.component.html',
 styleUrl: './users-page.component.css'
 })

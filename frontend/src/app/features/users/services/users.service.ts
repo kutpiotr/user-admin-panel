@@ -12,6 +12,14 @@ export class UsersService {
 private http = inject(HttpClient);
 private apiUrl = 'http://127.0.0.1:8000';
 
+createUser(data: any) {
+return this.http.post(`${this.apiUrl}/users`, data);
+}
+
+updateUser(id: number, data: any) {
+return this.http.put(`${this.apiUrl}/users/${id}`, data);
+}
+
 getUsers(search?: string, statusFilter?: string, roleId?: number): Observable<User[]> {
 let params = new HttpParams();
 

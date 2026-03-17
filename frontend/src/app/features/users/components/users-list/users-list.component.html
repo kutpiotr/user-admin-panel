@@ -8,6 +8,7 @@
 <th>Status</th>
 <th>Rola</th>
 <th>Data utworzenia</th>
+<th>Akcje</th>
 </tr>
 </thead>
 <tbody>
@@ -19,6 +20,9 @@
 <td>{{ user.status }}</td>
 <td>{{ user.role.name }}</td>
 <td>{{ user.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+<td>
+<a [routerLink]="['/users', user.id, 'edit']">Edytuj</a>
+</td>
 </tr>
 </tbody>
 </table>

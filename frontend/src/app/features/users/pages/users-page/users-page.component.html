@@ -1,8 +1,16 @@
 <section class="users-page">
+
+<div class="users-page-header">
 <h1>Panel administracyjny użytkowników</h1>
+
+<a routerLink="/users/create">
+<button>Dodaj użytkownika</button>
+</a>
+</div>
 
 <p *ngIf="isLoading">Ładowanie użytkowników...</p>
 <p *ngIf="errorMessage">{{ errorMessage }}</p>
 
 <app-users-list *ngIf="!isLoading && !errorMessage" [users]="users"></app-users-list>
+
 </section>

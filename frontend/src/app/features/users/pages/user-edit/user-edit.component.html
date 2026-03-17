@@ -1,0 +1,73 @@
+<section class="user-edit-page">
+<h1>Edytuj użytkownika</h1>
+
+<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+<p *ngIf="isLoading">Ładowanie...</p>
+
+<form *ngIf="!isLoading" (ngSubmit)="submit()" class="user-form">
+<div class="form-group">
+<label for="first_name">Imię</label>
+<input
+id="first_name"
+name="first_name"
+type="text"
+[(ngModel)]="form.first_name"
+required
+>
+</div>
+
+<div class="form-group">
+<label for="last_name">Nazwisko</label>
+<input
+id="last_name"
+name="last_name"
+type="text"
+[(ngModel)]="form.last_name"
+required
+>
+</div>
+
+<div class="form-group">
+<label for="email">Email</label>
+<input
+id="email"
+name="email"
+type="email"
+[(ngModel)]="form.email"
+required
+>
+</div>
+
+<div class="form-group">
+<label for="status">Status</label>
+<select
+id="status"
+name="status"
+[(ngModel)]="form.status"
+required
+>
+<option value="active">active</option>
+<option value="blocked">blocked</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="role_id">Rola</label>
+<select
+id="role_id"
+name="role_id"
+[(ngModel)]="form.role_id"
+required
+>
+<option *ngFor="let role of roles" [ngValue]="role.id">
+{{ role.name }}
+</option>
+</select>
+</div>
+
+<div class="actions">
+<button type="submit">Zapisz zmiany</button>
+<a routerLink="/users">Powrót do listy</a>
+</div>
+</form>
+</section>

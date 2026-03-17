@@ -1,0 +1,36 @@
+.user-edit-page {
+max-width: 700px;
+margin: 0 auto;
+padding: 24px;
+}
+
+.user-form {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+
+input,
+select,
+button {
+padding: 10px;
+font-size: 14px;
+}
+
+.actions {
+display: flex;
+align-items: center;
+gap: 16px;
+margin-top: 8px;
+}
+
+.error-message {
+color: #c62828;
+margin-bottom: 12px;
+}
