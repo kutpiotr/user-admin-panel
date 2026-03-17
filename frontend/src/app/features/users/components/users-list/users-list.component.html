@@ -21,8 +21,18 @@
 <td>{{ user.role.name }}</td>
 <td>{{ user.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
 <td class="actions-cell">
-<a [routerLink]="['/users', user.id, 'edit']">Edytuj</a>
-<button type="button" (click)="onDelete(user.id)">Usuń</button>
+<a
+class="btn btn-edit"
+[routerLink]="['/users', user.id, 'edit']">
+Edytuj
+</a>
+
+<button
+type="button"
+class="btn btn-delete"
+(click)="onDelete(user.id)">
+Usuń
+</button>
 </td>
 </tr>
 </tbody>

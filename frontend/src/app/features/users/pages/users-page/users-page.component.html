@@ -1,7 +1,11 @@
 <section class="users-page">
 <div class="users-page-header">
 <h1>Panel administracyjny użytkowników</h1>
-<a routerLink="/users/create" class="create-link">Dodaj użytkownika</a>
+<a
+routerLink="/users/create"
+class="btn btn-create">
+Dodaj użytkownika
+</a>
 </div>
 
 <p *ngIf="isLoading">Ładowanie użytkowników...</p>

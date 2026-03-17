@@ -1,9 +1,29 @@
-.users-page {
-padding: 24px;
-max-width: 1100px;
-margin: 0 auto;
+.users-page-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 16px;
 }
 
-h1 {
-margin-bottom: 16px;
+/* reuse button base */
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 8px 14px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 14px;
+text-decoration: none;
+}
+
+/* create button */
+.btn-create {
+background-color: #2e7d32;
+color: white;
+}
+
+.btn-create:hover {
+background-color: #1b5e20;
 }
