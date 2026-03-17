@@ -34,3 +34,13 @@ margin-top: 8px;
 color: #c62828;
 margin-bottom: 12px;
 }
+.field-error {
+color: #c62828;
+font-size: 13px;
+margin: 0;
+}
+
+button:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+}

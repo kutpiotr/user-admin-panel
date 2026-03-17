@@ -64,7 +64,13 @@ this.router.navigate(['/users']);
 },
 error: (error) => {
 this.isLoading = false;
-this.errorMessage = error?.error?.detail || 'Nie udało się utworzyć użytkownika.';
+
+if (error?.error?.detail) {
+this.errorMessage = error.error.detail;
+return;
+}
+
+this.errorMessage = 'Nie udało się utworzyć użytkownika.';
 }
 });
 }
