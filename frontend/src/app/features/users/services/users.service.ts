@@ -20,6 +20,10 @@ updateUser(id: number, data: any) {
 return this.http.put(`${this.apiUrl}/users/${id}`, data);
 }
 
+deleteUser(id: number) {
+return this.http.delete(`${this.apiUrl}/users/${id}`);
+}
+
 getUsers(search?: string, statusFilter?: string, roleId?: number): Observable<User[]> {
 let params = new HttpParams();
 

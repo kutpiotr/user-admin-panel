@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -13,4 +13,9 @@ styleUrl: './users-list.component.css'
 })
 export class UsersListComponent {
 @Input() users: User[] = [];
+@Output() delete = new EventEmitter<number>();
+
+onDelete(userId: number): void {
+this.delete.emit(userId);
+}
 }

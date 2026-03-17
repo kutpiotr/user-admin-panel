@@ -14,3 +14,13 @@ text-align: left;
 .users-table th {
 background-color: #f5f5f5;
 }
+.actions-cell {
+display: flex;
+gap: 10px;
+align-items: center;
+}
+
+.actions-cell button {
+padding: 6px 10px;
+cursor: pointer;
+}

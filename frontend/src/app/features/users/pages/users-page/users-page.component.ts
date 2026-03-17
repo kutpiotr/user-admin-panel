@@ -39,4 +39,21 @@ this.isLoading = false;
 }
 });
 }
+
+deleteUser(userId: number): void {
+const confirmed = window.confirm('Czy na pewno chcesz usunąć tego użytkownika?');
+
+if (!confirmed) {
+return;
+}
+
+this.usersService.deleteUser(userId).subscribe({
+next: () => {
+this.users = this.users.filter((user) => user.id !== userId);
+},
+error: () => {
+this.errorMessage = 'Nie udało się usunąć użytkownika.';
+}
+});
+}
 }
