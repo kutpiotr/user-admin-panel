@@ -59,4 +59,26 @@ name="role_id"
 [users]="users"
 (delete)="deleteUser($event)">
 </app-users-list>
+
+<div class="pagination" *ngIf="!isLoading && !errorMessage && totalItems > 0">
+<button
+type="button"
+class="btn btn-page"
+(click)="goToPreviousPage()"
+[disabled]="currentPage === 1">
+Poprzednia
+</button>
+
+<span>
+Strona {{ currentPage }} z {{ totalPages }} | Rekordy: {{ totalItems }}
+</span>
+
+<button
+type="button"
+class="btn btn-page"
+(click)="goToNextPage()"
+[disabled]="currentPage === totalPages">
+Następna
+</button>
+</div>
 </section>

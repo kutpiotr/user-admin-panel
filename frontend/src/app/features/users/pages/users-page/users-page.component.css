@@ -86,3 +86,25 @@ color: white;
 .btn-reset:hover {
 background-color: #616161;
 }
+
+.pagination {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 16px;
+margin-top: 20px;
+}
+
+.btn-page {
+background-color: #424242;
+color: white;
+}
+
+.btn-page:hover {
+background-color: #2f2f2f;
+}
+
+button:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+}

@@ -23,6 +23,11 @@ roles: Role[] = [];
 isLoading = false;
 errorMessage = '';
 
+currentPage = 1;
+pageSize = 5;
+totalItems = 0;
+totalPages = 1;
+
 filters = {
 search: '',
 status: '',
@@ -55,10 +60,15 @@ this.filters.role_id !== '' ? Number(this.filters.role_id) : undefined;
 this.usersService.getUsers(
 this.filters.search || undefined,
 this.filters.status || undefined,
-roleId
+roleId,
+this.currentPage,
+this.pageSize
 ).subscribe({
-next: (data) => {
-this.users = data;
+next: (response) => {
+this.users = response.items;
+this.totalItems = response.total;
+this.totalPages = response.pages;
+this.currentPage = response.page;
 this.isLoading = false;
 },
 error: () => {
@@ -69,6 +79,7 @@ this.isLoading = false;
 }
 
 applyFilters(): void {
+this.currentPage = 1;
 this.loadUsers();
 }
 
@@ -78,8 +89,22 @@ search: '',
 status: '',
 role_id: ''
 };
-
+this.currentPage = 1;
 this.loadUsers();
+}
+
+goToPreviousPage(): void {
+if (this.currentPage > 1) {
+this.currentPage--;
+this.loadUsers();
+}
+}
+
+goToNextPage(): void {
+if (this.currentPage < this.totalPages) {
+this.currentPage++;
+this.loadUsers();
+}
 }
 
 deleteUser(userId: number): void {
@@ -91,7 +116,10 @@ return;
 
 this.usersService.deleteUser(userId).subscribe({
 next: () => {
-this.users = this.users.filter((user) => user.id !== userId);
+if (this.users.length === 1 && this.currentPage > 1) {
+this.currentPage--;
+}
+this.loadUsers();
 },
 error: () => {
 this.errorMessage = 'Nie udało się usunąć użytkownika.';
