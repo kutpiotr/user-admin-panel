@@ -1,0 +1,8 @@
+<section class="users-page">
+<h1>Panel administracyjny użytkowników</h1>
+
+<p *ngIf="isLoading">Ładowanie użytkowników...</p>
+<p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<app-users-list *ngIf="!isLoading && !errorMessage" [users]="users"></app-users-list>
+</section>

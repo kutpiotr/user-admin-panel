@@ -1,0 +1,28 @@
+<table *ngIf="users.length > 0; else emptyState" class="users-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Imię</th>
+<th>Nazwisko</th>
+<th>Email</th>
+<th>Status</th>
+<th>Rola</th>
+<th>Data utworzenia</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let user of users">
+<td>{{ user.id }}</td>
+<td>{{ user.first_name }}</td>
+<td>{{ user.last_name }}</td>
+<td>{{ user.email }}</td>
+<td>{{ user.status }}</td>
+<td>{{ user.role.name }}</td>
+<td>{{ user.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+</tr>
+</tbody>
+</table>
+
+<ng-template #emptyState>
+<p>Brak użytkowników do wyświetlenia.</p>
+</ng-template>
