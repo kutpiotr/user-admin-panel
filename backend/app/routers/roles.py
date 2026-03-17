@@ -1,11 +1,14 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
 
-from app.db.fake_data import ROLES
+from app.db.database import get_db
+from app.models.role import Role
 from app.schemas.role import RoleResponse
 
 router = APIRouter(prefix="/roles", tags=["roles"])
 
 
 @router.get("", response_model=list[RoleResponse])
-def get_roles():
-    return ROLES
+def get_roles(db: Session = Depends(get_db)):
+    roles = db.query(Role).all()
+    return roles
