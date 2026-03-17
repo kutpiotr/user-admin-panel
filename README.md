@@ -2,21 +2,32 @@
 
 Projekt portfolio Full Stack pokazujący budowę panelu administracyjnego użytkowników.
 
-## Cel projektu
-Aplikacja umożliwia administratorowi zarządzanie użytkownikami w systemie.
+## Zakres projektu
 
-## Zakres funkcjonalny
+Aplikacja umożliwia administratorowi:
 - przeglądanie listy użytkowników
 - dodawanie użytkowników
-- edycja danych użytkownika
-- usuwanie użytkowników
-- zmiana statusu użytkownika
-- przypisywanie roli
+- edycję danych użytkownika
+- usuwanie użytkownika
+- zmianę statusu użytkownika
+- przypisywanie roli użytkownikowi
 - wyszukiwanie i filtrowanie użytkowników
 
 ## Technologie
+
+### Backend
 - Python
 - FastAPI
+- SQLAlchemy
+- SQLite
+
+### Frontend
 - Angular
+- TypeScript
+- Angular HttpClient
+
+### Inne
 - REST API
 - SQL
+- GitHub
+- Markdown
