@@ -1,11 +1,50 @@
+.users-page {
+padding: 24px;
+max-width: 1100px;
+margin: 0 auto;
+}
+
 .users-page-header {
 display: flex;
 justify-content: space-between;
 align-items: center;
+margin-bottom: 20px;
+gap: 16px;
+}
+
+.filters-panel {
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 16px;
+margin-bottom: 20px;
+background: #fafafa;
+}
+
+.filters-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
 margin-bottom: 16px;
 }
 
-/* reuse button base */
+.form-group {
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+
+input,
+select {
+padding: 10px;
+font-size: 14px;
+}
+
+.filters-actions {
+display: flex;
+gap: 10px;
+}
+
+/* shared button base */
 .btn {
 display: inline-flex;
 align-items: center;
@@ -18,7 +57,7 @@ font-size: 14px;
 text-decoration: none;
 }
 
-/* create button */
+/* create */
 .btn-create {
 background-color: #2e7d32;
 color: white;
@@ -26,4 +65,24 @@ color: white;
 
 .btn-create:hover {
 background-color: #1b5e20;
+}
+
+/* filter */
+.btn-filter {
+background-color: #1976d2;
+color: white;
+}
+
+.btn-filter:hover {
+background-color: #1565c0;
+}
+
+/* reset */
+.btn-reset {
+background-color: #757575;
+color: white;
+}
+
+.btn-reset:hover {
+background-color: #616161;
 }
