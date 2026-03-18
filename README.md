@@ -1,17 +1,22 @@
-# User Admin Panel
+# Panel administracyjny użytkowników
 
-Projekt portfolio Full Stack pokazujący budowę panelu administracyjnego użytkowników.
+Projekt portfolio Full Stack (Python + Angular) przedstawiający system zarządzania użytkownikami.
 
-## Zakres projektu
+---
+
+## Opis projektu
 
 Aplikacja umożliwia administratorowi:
+
 - przeglądanie listy użytkowników
 - dodawanie użytkowników
 - edycję danych użytkownika
 - usuwanie użytkownika
-- zmianę statusu użytkownika
-- przypisywanie roli użytkownikowi
-- wyszukiwanie i filtrowanie użytkowników
+- filtrowanie i wyszukiwanie
+- przypisywanie ról
+- paginację wyników
+
+---
 
 ## Technologie
 
@@ -22,12 +27,55 @@ Aplikacja umożliwia administratorowi:
 - SQLite
 
 ### Frontend
-- Angular
+- Angular (standalone components)
 - TypeScript
 - Angular HttpClient
 
 ### Inne
 - REST API
 - SQL
-- GitHub
-- Markdown
+- Git
+
+---
+
+## Architektura
+
+Frontend (Angular) komunikuje się z backendem (FastAPI) poprzez REST API.
+
+Backend zarządza logiką biznesową oraz bazą danych.
+
+---
+
+## API (przykładowe endpointy)
+
+GET /users  
+POST /users  
+PUT /users/{id}  
+DELETE /users/{id}  
+PATCH /users/{id}/status  
+PATCH /users/{id}/role  
+
+---
+
+## Uruchomienie projektu
+
+### Backend
+
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+ng serve
+```
+
+Frontend dostępny pod:
+http://localhost:4200

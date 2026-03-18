@@ -5,6 +5,7 @@ from app.db.database import get_db
 from app.models.role import Role
 from app.models.user import User
 from app.schemas.user import (
+    PaginatedUsersResponse,
     UserCreate,
     UserResponse,
     UserRoleUpdate,
@@ -15,11 +16,13 @@ from app.schemas.user import (
 router = APIRouter(prefix="/users", tags=["users"])
 
 
-@router.get("", response_model=list[UserResponse])
+@router.get("", response_model=PaginatedUsersResponse)
 def get_users(
     search: str | None = None,
     status_filter: str | None = None,
     role_id: int | None = None,
+    page: int = 1,
+    limit: int = 5,
     db: Session = Depends(get_db),
 ):
     query = db.query(User).options(joinedload(User.role))
@@ -38,8 +41,24 @@ def get_users(
     if role_id:
         query = query.filter(User.role_id == role_id)
 
-    users = query.all()
-    return users
+    total = query.count()
+
+    pages = (total + limit - 1) // limit if total > 0 else 1
+
+    users = (
+        query
+        .offset((page - 1) * limit)
+        .limit(limit)
+        .all()
+    )
+
+    return {
+        "items": users,
+        "total": total,
+        "page": page,
+        "limit": limit,
+        "pages": pages,
+    }
 
 
 @router.get("/{user_id}", response_model=UserResponse)
