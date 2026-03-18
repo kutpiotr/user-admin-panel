@@ -42,9 +42,33 @@ Aplikacja umożliwia administratorowi:
 
 Frontend (Angular) komunikuje się z backendem (FastAPI) poprzez REST API.
 
-Backend zarządza logiką biznesową oraz bazą danych.
+Backend odpowiada za:
+- logikę biznesową
+- walidację danych
+- komunikację z bazą danych
+
+Struktura aplikacji:
+
+Administrator → Angular (Frontend) → FastAPI (Backend) → SQLite (Database)
 
 ---
+
+## Zrzuty ekranu
+
+### Lista użytkowników
+![Users List](docs/users-list.png)
+
+### Dodawanie użytkownika
+![Create User](docs/user-create.png)
+
+### Edycja użytkownika
+![Edit User](docs/user-edit.png)
+
+### Filtrowanie użytkowników
+![Filter Users](docs/users-filter.png)
+
+Przykład filtrowania użytkowników po roli **"user"** – lista wyników aktualizuje się dynamicznie na podstawie wybranych kryteriów (rola, status, wyszukiwanie).
+
 
 ## API (przykładowe endpointy)
 
@@ -79,3 +103,7 @@ ng serve
 
 Frontend dostępny pod:
 http://localhost:4200
+
+## Autor
+
+Piotr Kut student kierunku Inżynieria i analiza danych
